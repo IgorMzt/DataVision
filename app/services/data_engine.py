@@ -54,7 +54,7 @@ def profile_dataframe(df: pd.DataFrame) -> dict:
     cells = max(rows * cols, 1)
     duplicates = int(df.duplicated().sum())
     column_profiles = []
-    invalid_types = 0
+    invalid_cells = 0
     outliers_total = 0
     for name in df.columns:
         s = df[name]
@@ -66,15 +66,27 @@ def profile_dataframe(df: pd.DataFrame) -> dict:
         }
         if pd.api.types.is_numeric_dtype(s):
             clean = s.dropna().astype(float)
-            if len(clean):
-                q1, q3 = clean.quantile([.25, .75]); iqr = q3-q1
-                outliers = int(((clean < q1-1.5*iqr) | (clean > q3+1.5*iqr)).sum()) if iqr > 0 else 0
+            invalid_here = int((~np.isfinite(clean)).sum()) if len(clean) else 0
+            invalid_cells += invalid_here
+            item["invalid"] = invalid_here
+            finite = clean[np.isfinite(clean)]
+            if len(finite):
+                q1, q3 = finite.quantile([.25, .75]); iqr = q3-q1
+                outliers = int(((finite < q1-1.5*iqr) | (finite > q3+1.5*iqr)).sum()) if iqr > 0 else 0
                 outliers_total += outliers
-                item["stats"] = {"mean": _safe(clean.mean()), "median": _safe(clean.median()), "min": _safe(clean.min()), "max": _safe(clean.max()), "outliers": outliers}
+                item["stats"] = {"mean": _safe(finite.mean()), "median": _safe(finite.median()), "min": _safe(finite.min()), "max": _safe(finite.max()), "outliers": outliers}
+        elif stype == "data/hora":
+            non_null = s.dropna()
+            parsed = pd.to_datetime(non_null, errors="coerce", dayfirst=True, format="mixed")
+            invalid_here = int(parsed.isna().sum())
+            invalid_cells += invalid_here
+            item["invalid"] = invalid_here
+        else:
+            item["invalid"] = 0
         column_profiles.append(item)
     completeness = max(0, 100 - missing/cells*100)
     uniqueness = max(0, 100 - duplicates/max(rows,1)*100)
-    validity = max(0, 100 - invalid_types/max(cols,1)*100)
+    validity = max(0, 100 - invalid_cells/cells*100)
     consistency = max(0, 100 - min(outliers_total/max(rows,1)*15, 25))
     quality = round(.40*completeness + .25*uniqueness + .20*validity + .15*consistency, 1)
     return {

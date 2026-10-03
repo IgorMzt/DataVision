@@ -7,7 +7,7 @@ estatísticos e sinais de anomalia, mantendo o dataset original
 preservado durante o processo.
 
 > Projeto pessoal em desenvolvimento. A versão atual corresponde à
-> **V1.4 --- Intelligence**.
+> **V1.5 --- Finalização**.
 
 ## Visão geral
 
@@ -271,7 +271,7 @@ principais e Intelligence/Anomaly Engine.
 -   **V1.4 --- Intelligence:** Anomaly Engine, velocity e comparação
     entre execuções.
 
-### Próxima etapa --- V1.5
+### V1.5 --- Finalização
 
 -   suporte de infraestrutura para PostgreSQL/MySQL;
 -   exportação de relatórios e dados;
@@ -305,7 +305,7 @@ Alguns princípios orientam o desenvolvimento do DataVision:
 
 ## Status
 
-**Versão atual:** V1.4 --- Intelligence\
+**Versão atual:** V1.5 --- Finalização\
 **Estado:** projeto pessoal em desenvolvimento.
 
 ## Autor
