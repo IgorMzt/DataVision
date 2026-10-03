@@ -1,0 +1,4 @@
+{% extends 'base.html' %}{% block title %}Importar dados • DataVision{% endblock %}{% block content %}
+<section class="container data-page"><a class="back-link" href="{{ url_for('projects.detail',project_id=project.id) }}">← {{ project.name }}</a><div class="data-heading"><span class="kicker">DATA ENGINE</span><h1>Importe seu dataset.</h1><p>O DataVision preserva o arquivo original e cria uma camada processada separada.</p></div>
+<form class="upload-card" method="post" enctype="multipart/form-data"><label class="drop-zone" id="dropZone"><input id="datasetInput" type="file" name="dataset" accept=".csv,.xlsx,.xlsm" required><span class="upload-icon">↑</span><strong>Arraste seu arquivo ou clique para selecionar</strong><small>CSV ou XLSX • o original nunca será alterado</small><span id="fileName" class="file-name">Nenhum arquivo selecionado</span></label><button class="button" type="submit">Analisar dataset →</button></form>
+</section>{% endblock %}
