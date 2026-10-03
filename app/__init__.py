@@ -13,9 +13,11 @@ def create_app(config_class=Config):
     from .routes.main import main_bp
     from .routes.projects import projects_bp
     from .routes.data import data_bp
+    from .routes.analytics import analytics_bp
     app.register_blueprint(main_bp)
     app.register_blueprint(projects_bp, url_prefix="/projects")
     app.register_blueprint(data_bp)
+    app.register_blueprint(analytics_bp)
 
     with app.app_context():
         from .models.project import Project

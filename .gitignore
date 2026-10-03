@@ -1,8 +1,10 @@
 .venv/
 __pycache__/
-*.py[cod]
+*.pyc
 .pytest_cache/
 .env
 instance/*.db
 storage/projects/*
 !storage/projects/.gitkeep
+*.csv
+*.xlsx

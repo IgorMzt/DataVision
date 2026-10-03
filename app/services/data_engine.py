@@ -42,7 +42,7 @@ def semantic_type(series: pd.Series) -> str:
     if pd.api.types.is_numeric_dtype(series): return "numérico"
     sample = series.dropna().astype(str).head(100)
     if len(sample):
-        parsed = pd.to_datetime(sample, errors="coerce", dayfirst=True)
+        parsed = pd.to_datetime(sample, errors="coerce", dayfirst=True, format="mixed")
         if parsed.notna().mean() >= .85: return "data/hora"
     unique_ratio = series.nunique(dropna=True) / max(len(series), 1)
     if unique_ratio > .9: return "identificador/texto"
