@@ -6,8 +6,7 @@ Excel em perfis de qualidade, dashboards, indicadores, insights
 estatísticos e sinais de anomalia, mantendo o dataset original
 preservado durante o processo.
 
-> Projeto pessoal em desenvolvimento. A versão atual corresponde à
-> **V1.5 --- Finalização**.
+> Projeto pessoal de portfólio. Versão estável atual: **v1.0.0**.
 
 ## Visão geral
 
@@ -271,22 +270,14 @@ principais e Intelligence/Anomaly Engine.
 -   **V1.4 --- Intelligence:** Anomaly Engine, velocity e comparação
     entre execuções.
 
-### V1.5 --- Finalização
-
--   suporte de infraestrutura para PostgreSQL/MySQL;
--   exportação de relatórios e dados;
--   refinamento responsivo e visual;
--   hardening de segurança;
--   otimizações de desempenho;
--   ampliação da suíte de testes.
+-   **V1.5 --- Finalização:** infraestrutura para PostgreSQL/MySQL, exportação de relatórios e dados, refinamento responsivo, segurança, desempenho e ampliação dos testes.
+-   **v1.0.0 --- Release estável:** consolidação da primeira versão pública do projeto.
 
 ### Futuro
 
--   consolidação da V1.0.0;
 -   evolução da customização dos dashboards;
 -   novas fontes de dados;
--   camada de assistência por IA baseada nos resultados calculados pelos
-    engines, sem substituir as métricas determinísticas.
+-   evolução da camada de insights com novas regras analíticas e métricas rastreáveis.
 
 ## Decisões de projeto
 
@@ -305,8 +296,8 @@ Alguns princípios orientam o desenvolvimento do DataVision:
 
 ## Status
 
-**Versão atual:** V1.5 --- Finalização\
-**Estado:** projeto pessoal em desenvolvimento.
+**Versão atual:** v1.0.0  
+**Estado:** release estável de portfólio.
 
 ## Autor
 

@@ -30,7 +30,7 @@ def create():
         db.session.add(project)
         db.session.commit()
         (current_app.config["STORAGE_ROOT"] / str(project.id)).mkdir(parents=True, exist_ok=True)
-        flash("Projeto criado. A base está pronta para receber dados na V1.2.", "success")
+        flash("Projeto criado. A base está pronta para receber dados.", "success")
         return redirect(url_for("projects.detail", project_id=project.id))
     return render_template("projects/create.html")
 
