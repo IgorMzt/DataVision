@@ -24,6 +24,38 @@ Na camada de inteligência, o projeto também possui um mecanismo
 determinístico de detecção de anomalias. O **Anomaly Score representa
 desvio em relação ao padrão observado e não probabilidade de fraude**.
 
+## Demonstração
+
+### Visão geral
+
+Interface inicial do DataVision e acesso aos fluxos de análise.
+
+![Home do DataVision](docs/images/home.png)
+
+### Data Profiler e Data Quality
+
+Após a importação, o DataVision analisa a estrutura do dataset e apresenta métricas de qualidade, valores ausentes, duplicidades e possíveis outliers.
+
+![Data Profiler e Data Quality Score](docs/images/data-quality.png)
+
+### Smart Column Mapper
+
+O mapeamento semântico sugere o papel de cada coluna e permite que o usuário revise as associações antes de continuar a análise.
+
+![Smart Column Mapper](docs/images/smart-column-mapper.png)
+
+### Dashboard analítico
+
+Os dashboards são montados a partir do contexto identificado no dataset, reunindo KPIs, distribuições, séries e visualizações relevantes para a execução.
+
+![Dashboard analítico do DataVision](docs/images/dashboard.png)
+
+### Anomaly Engine
+
+O Anomaly Engine destaca desvios do padrão observado e apresenta as evidências que contribuíram para o score. O indicador representa anomalia comportamental, não probabilidade de fraude.
+
+![Anomaly Engine](docs/images/anomaly-engine.png)
+
 ## Funcionalidades atuais
 
 -   Criação, edição, duplicação, arquivamento e exclusão de projetos.
